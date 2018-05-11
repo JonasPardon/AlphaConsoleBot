@@ -53,12 +53,12 @@ module.exports = {
             )}' where Command = '${mysql_real_escape_string(TheCommand)}'`
           )
           .then(() => {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Command succesfully edited!", serverInfo.logo);
             message.channel.send(embed);
 
-            const embedlog = new Discord.MessageEmbed()
+            const embedlog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Command Edited", serverInfo.logo)
               .addField("Command", TheCommand)
@@ -74,7 +74,7 @@ module.exports = {
               .send(embedlog);
           });
       } else {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "Please provide me what the command should answer.\nUsage: `!EditCom [Command] [Text]`",

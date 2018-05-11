@@ -42,7 +42,7 @@ module.exports = {
                   reaction.message.channel.id == serverInfo.suggestionsChannel
                 ) {
                   reaction.message.delete();
-                  const embed = new Discord.MessageEmbed()
+                  const embed = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(
                       `Your suggestion was deleted by ${user.username}`,
@@ -61,7 +61,7 @@ module.exports = {
                         )
                     );
 
-                  const embedLog = new Discord.MessageEmbed()
+                  const embedLog = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(`SUGGESTION DELETED`, serverInfo.logo)
                     .addField(
@@ -84,7 +84,7 @@ module.exports = {
 
                 if (reaction.message.channel.id == serverInfo.showcaseChannel) {
                   reaction.message.delete();
-                  const embed = new Discord.MessageEmbed()
+                  const embed = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(
                       `Your showcase was deleted by ${user.username}`,
@@ -103,7 +103,7 @@ module.exports = {
                         )
                     );
 
-                  const embedLog = new Discord.MessageEmbed()
+                  const embedLog = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(`SHOWCASE DELETED`, serverInfo.logo)
                     .addField(
@@ -130,7 +130,7 @@ module.exports = {
                 if (reaction.message.channel.id == serverInfo.suggestionsChannel) {
 				  reason = "Not a valid suggestion, already been suggested, or in violation of the information listed at the top of our suggestions channel."
                   reaction.message.delete();
-                  const embed = new Discord.MessageEmbed()
+                  const embed = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(
                       `Your suggestion was deleted by ${user.username}`,
@@ -149,7 +149,7 @@ module.exports = {
                         )
                     );
 
-                  const embedLog = new Discord.MessageEmbed()
+                  const embedLog = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(`SUGGESTION DELETED`, serverInfo.logo)
                     .addField(
@@ -173,7 +173,7 @@ module.exports = {
                 if (reaction.message.channel.id == serverInfo.showcaseChannel) {
                   reason = "Unrelated to the channel's purpose."
 				  reaction.message.delete();
-                  const embed = new Discord.MessageEmbed()
+                  const embed = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(
                       `Your showcase was deleted by ${user.username}`,
@@ -192,7 +192,7 @@ module.exports = {
                         )
                     );
 
-                  const embedLog = new Discord.MessageEmbed()
+                  const embedLog = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(`SHOWCASE DELETED`, serverInfo.logo)
                     .addField(
@@ -241,7 +241,7 @@ module.exports = {
               sendMessages(user, data, serverInfo, sql, errChannel);
             })
             .catch(err => {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 0, 0])
                 .setAuthor("Partner Database Error", serverInfo.logo)
                 .setDescription(

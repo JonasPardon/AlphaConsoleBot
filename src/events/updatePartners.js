@@ -297,7 +297,7 @@ function sendMessages(partnerChannel, data, serverInfo, sql) {
 }
 
 function getErrorEmbed(serverInfo, err) {
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.RichEmbed()
     .setColor([255, 0, 0])
     .setAuthor("Failed!", serverInfo.logo)
     .addField("Error:", `${err}`);

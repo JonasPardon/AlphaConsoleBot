@@ -24,7 +24,7 @@ module.exports = {
         message.channel.id != serverInfo.staffChannel &&
         message.channel.id != serverInfo.basementChannel
       ) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "Viewing swear words is not allowed in this channel.",
@@ -44,7 +44,7 @@ module.exports = {
             StatusMSG = "No words found.";
           }
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Bot auto removal swear words", serverInfo.logo)
             .setDescription(StatusMSG);
@@ -59,7 +59,7 @@ module.exports = {
 
         sql.run(`insert into SwearWords(Word) VALUES ('${words.trim()}')`);
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Swear word added.", serverInfo.logo);
         message.channel.send(embed);
@@ -74,7 +74,7 @@ module.exports = {
         if (args.length == 3) {
           sql.run(`delete from SwearWords where ID = '${args[2]}'`);
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Swear Word removed.", serverInfo.logo);
           message.channel.send(embed);
@@ -86,7 +86,7 @@ module.exports = {
             });
           });
         } else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               "Please provide the ID of the swear word.",

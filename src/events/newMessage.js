@@ -104,7 +104,7 @@ module.exports = {
 		) {
 			if (message.channel.id == serverInfo.showcaseChannel && message.attachments.size != 1) {
 				message.delete();
-				const embed = new Discord.MessageEmbed()
+				const embed = new Discord.RichEmbed()
 					.setColor([255, 255, 0])
 					.setAuthor("Only images allowed in Showcase channel.", serverInfo.logo);
 				return message.author.send(embed).catch(e => message.guild.channels.get(serverInfo.BotSpam).send(
@@ -147,7 +147,7 @@ module.exports = {
 												postPin(message, sql, serverInfo, "suggestion")
 											} else {
 												message.delete();
-												const embed = new Discord.MessageEmbed()
+												const embed = new Discord.RichEmbed()
 													.setColor([255, 255, 0])
 													.setAuthor(
 														"Your suggestion has been removed since you can only send in once every 5 minutes!",
@@ -182,7 +182,7 @@ module.exports = {
 												postPin(message, sql, serverInfo, "showcase")
 											} else {
 												message.delete();
-												const embed = new Discord.MessageEmbed()
+												const embed = new Discord.RichEmbed()
 													.setColor([255, 255, 0])
 													.setAuthor(
 														"Your Showcase has been removed since you can only send in once every 5 minutes!",
@@ -226,7 +226,7 @@ module.exports = {
 										postPin(message, sql, serverInfo, "suggestion")
 									} else {
 										message.delete();
-										const embed = new Discord.MessageEmbed()
+										const embed = new Discord.RichEmbed()
 											.setColor([255, 255, 0])
 											.setAuthor(
 												"Your suggestion has been removed since you can only send in suggestions once every 5 minutes!",
@@ -259,7 +259,7 @@ module.exports = {
 										postPin(message, sql, serverInfo, "showcase")
 									} else {
 										message.delete();
-										const embed = new Discord.MessageEmbed()
+										const embed = new Discord.RichEmbed()
 											.setColor([255, 255, 0])
 											.setAuthor(
 												"Your Showcase has been removed since you can only send in suggestions once every 5 minutes!",
@@ -638,7 +638,7 @@ function mysql_real_escape_string(str) {
   }
 
 function postPin(message, sql, serverInfo, something) {
-	const embed = new Discord.MessageEmbed()
+	const embed = new Discord.RichEmbed()
 		.setColor([255, 255, 0])
 		.setAuthor("Make sure to read the pins before sending a message here!", serverInfo.logo);
 

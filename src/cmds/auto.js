@@ -32,7 +32,7 @@ module.exports = {
             StatusMSG = "No statuses found.";
           }
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Bot AutoResponds", serverInfo.logo)
             .setDescription(StatusMSG);
@@ -50,7 +50,7 @@ module.exports = {
             )}', '${mysql_real_escape_string(response)}')`
           );
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Auto Response message added.", serverInfo.logo);
           message.channel.send(embed);
@@ -62,7 +62,7 @@ module.exports = {
             });
           });
         } else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Auto Response message was not added.", serverInfo.logo)
             .setDescription(
@@ -74,7 +74,7 @@ module.exports = {
         if (args.length == 3) {
           sql.run(`delete from AutoResponds where ID = '${args[2]}'`);
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Auto Response message removed.", serverInfo.logo);
           message.channel.send(embed);
@@ -86,7 +86,7 @@ module.exports = {
             });
           });
         } else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               "Please provide the ID of the auto respond message.",

@@ -21,7 +21,7 @@ module.exports = {
           allCommands += "- !" + row.Command + "\n";
         });
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("All custom commands", serverInfo.logo)
           .setDescription(allCommands);

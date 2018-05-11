@@ -13,7 +13,7 @@ module.exports = {
       hasRole(message.member, "Developer")
     ) {
       if (args.length < 3) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "Please include the user and his new nickname",
@@ -35,13 +35,13 @@ module.exports = {
           }
 
           member.setNickname(newName);
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Nickname updated.", serverInfo.logo);
           return message.channel.send(embed);
         })
         .catch(e => {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Provided user not found.", serverInfo.logo);
           return message.channel.send(embed);

@@ -14,7 +14,7 @@ module.exports = {
       // <---   If you would like to change role perms. Change [BontControl] to your role name
 
       if (args.length == 1) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Events command", serverInfo.logo);
 
@@ -25,7 +25,7 @@ module.exports = {
         message.channel.send(embed);
       } else if (args.length == 2) {
         if (Commands[args[1].toLowerCase()] != undefined) {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Help command - " + args[1], serverInfo.logo)
             .setFooter(
@@ -40,7 +40,7 @@ module.exports = {
           }
           message.channel.send(embed);
         } else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Command not found", serverInfo.logo);
           message.channel.send(embed);

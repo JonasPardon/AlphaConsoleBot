@@ -15,7 +15,7 @@ module.exports = {
     ) {
       //Check if someone is tagged
       if (message.mentions.users.first() == undefined) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Please tag the user to be unmuted", serverInfo.logo);
         return message.channel.send(embed);
@@ -28,7 +28,7 @@ module.exports = {
             "Muted"
           )
         ) {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               "Cannot unmute a user that isn't muted.",
@@ -43,7 +43,7 @@ module.exports = {
         MutedUser.removeRole(MutedRole);
 
         //Make a notice & Log it to the log-channel
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             `${message.mentions.users.first().tag} has been unmuted.`,
@@ -51,7 +51,7 @@ module.exports = {
           );
         message.channel.send(embed); //Remove this line if you don't want it to be public.
 
-        const embedlog = new Discord.MessageEmbed()
+        const embedlog = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("=== USER UNMUTE ===", serverInfo.logo)
           .setDescription(
@@ -104,7 +104,7 @@ module.exports = {
           })
           .catch(err => console.log(err));
       } else {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "__Command wrongly build:__ \n\n`!Unmute @user`",

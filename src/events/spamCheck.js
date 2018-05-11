@@ -52,7 +52,7 @@ module.exports = {
       messageMatch == maxDuplicatesWarning &&
       !warned.includes(message.author.id)
     ) {
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor(
           `${message.author.tag} has been warned [Automated due to spam]`,
@@ -134,7 +134,7 @@ module.exports = {
             .then(roww => {
               if (roww) CaseID = roww.ID;
 
-              const embedlog = new Discord.MessageEmbed()
+              const embedlog = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor(`Case ${CaseID} | User Mute`, serverInfo.logo)
                 .setDescription(
@@ -162,7 +162,7 @@ module.exports = {
       messageMatch == maxDuplicatesBan &&
       !banned.includes(message.author.id)
     ) {
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor(
           `${
@@ -202,7 +202,7 @@ module.exports = {
             .then(roww => {
               if (roww) CaseID = roww.ID;
 
-              const embedlog = new Discord.MessageEmbed()
+              const embedlog = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor(`Case ${CaseID} | User Mute`, serverInfo.logo)
                 .setDescription(
@@ -233,7 +233,7 @@ module.exports = {
       if (authors[i].time > now - interval) {
         matched++;
         if (matched == warnBuffer && !warned.includes(message.author.id)) {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${message.author.tag} has been warned [Automated due to spam]`,
@@ -317,7 +317,7 @@ module.exports = {
                 .then(roww => {
                   if (roww) CaseID = roww.ID;
 
-                  const embedlog = new Discord.MessageEmbed()
+                  const embedlog = new Discord.RichEmbed()
                     .setColor([255, 255, 0])
                     .setAuthor(`Case ${CaseID} | User Mute`, serverInfo.logo)
                     .setDescription(
@@ -342,7 +342,7 @@ module.exports = {
             .catch(err => console.log(err));
         } else if (matched == maxBuffer) {
           if (!banned.includes(message.author.id)) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 `${
@@ -382,7 +382,7 @@ module.exports = {
                   .then(roww => {
                     if (roww) CaseID = roww.ID;
 
-                    const embedlog = new Discord.MessageEmbed()
+                    const embedlog = new Discord.RichEmbed()
                       .setColor([255, 255, 0])
                       .setAuthor(`Case ${CaseID} | User Mute`, serverInfo.logo)
                       .setDescription(

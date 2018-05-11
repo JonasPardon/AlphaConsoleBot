@@ -27,12 +27,12 @@ module.exports = {
           )}'`
         )
         .then(() => {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Command succesfully removed!", serverInfo.logo);
           message.channel.send(embed);
 
-          const embedlog = new Discord.MessageEmbed()
+          const embedlog = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Command deleted", serverInfo.logo)
             .addField("Command", TheCommand)

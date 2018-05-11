@@ -14,14 +14,14 @@ module.exports = {
     ) {
       //Check if someone is tagged
       if (message.mentions.users.first() == undefined) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setTitle("Please tag the user to be banned");
         return message.channel.send(embed);
       }
 
       if (isStaff(message.guild.member(message.mentions.users.first()))) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setTitle("You cannot ban a staff member.");
         return message.channel.send(embed);
@@ -63,7 +63,7 @@ module.exports = {
 
               CaseID = roww.ID;
               //Make a notice & Log it to the log-channel
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor(
                   `${
@@ -73,7 +73,7 @@ module.exports = {
                 );
               message.channel.send(embed); //Remove this line if you don't want it to be public.
 
-              const embedlog = new Discord.MessageEmbed()
+              const embedlog = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor(`Case ${CaseID} | User Ban`, serverInfo.logo)
                 .setDescription(

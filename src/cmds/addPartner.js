@@ -15,7 +15,7 @@ module.exports = {
       // Ensure this user is permitted to do this,
       // Check arguments
       if (args.length < 3) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setTitle("You must specify both a Partner Type and a Partner Name!");
         return message.channel.send(embed);
@@ -75,7 +75,7 @@ module.exports = {
 
               //Check if there is at least one message, or there's no point having the partner in the more info channel
               if (messages.length == 0) {
-                const embed = new Discord.MessageEmbed()
+                const embed = new Discord.RichEmbed()
                   .setColor([255, 255, 0])
                   .setTitle(
                     "Partners must have at least one message or image!"
@@ -88,7 +88,7 @@ module.exports = {
               // TODO db call here
               // Check if partner name exists, if it does  then REEE at user
 
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setTitle("Partner Added, Updating the Partners Channel!");
               return message.channel.send(embed);

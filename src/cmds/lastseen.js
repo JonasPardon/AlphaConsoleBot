@@ -35,7 +35,7 @@ module.exports = {
         url += "?SteamID=" + args[1];
         user = args[1];
       } else {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "Incorrect parameter. Please use mention/discordID/steamID",
@@ -51,7 +51,7 @@ module.exports = {
         function(err, response, body) {
           if (body) {
             if (body.toLowerCase().includes("db")) {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("User not found in db.", serverInfo.logo);
               return message.channel.send(embed);
@@ -59,7 +59,7 @@ module.exports = {
             var dbTime = convertUnixTime(body.trim());
             if (isNaN(user)) {
               if (user.lastMessage == null || user.lastMessage == undefined) {
-                const embed = new Discord.MessageEmbed()
+                const embed = new Discord.RichEmbed()
                   .setColor([255, 255, 0])
                   .setAuthor("Last Seen Check", serverInfo.logo)
                   .addField("User", user)
@@ -70,7 +70,7 @@ module.exports = {
                   );
                 message.channel.send(embed);
               } else {
-                const embed = new Discord.MessageEmbed()
+                const embed = new Discord.RichEmbed()
                   .setColor([255, 255, 0])
                   .setAuthor("Last Seen Check", serverInfo.logo)
                   .addField("User", user)
@@ -83,7 +83,7 @@ module.exports = {
                 message.channel.send(embed);
               }
             } else {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("Last Seen Check", serverInfo.logo)
                 .addField("User", user)

@@ -5,7 +5,7 @@ module.exports = {
   description: ["Logs whenever a ban got removed"],
 
   run: async (client, serverInfo, user) => {
-    const embedlog = new Discord.MessageEmbed()
+    const embedlog = new Discord.RichEmbed()
       .setColor([255, 255, 0])
       .setAuthor("MEMBER UNBANNED", serverInfo.logo)
       .setDescription("<@" + user.id + "> is unbanned")

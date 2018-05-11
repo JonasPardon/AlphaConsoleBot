@@ -11,13 +11,13 @@ module.exports = {
       sql.get(`select * from misc where function = 'giveawayon'`).then(row => {
         if (row.value == 0) {
           sql.run(`update misc set value = 1 where function = 'giveawayon'`);
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(`Legacy Giveaways are now enabled.`, serverInfo.logo);
           message.channel.send(embed);
         } else {
           sql.run(`update misc set value = 0 where function = 'giveawayon'`);
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(`Legacy Giveaways are now disabled.`, serverInfo.logo);
           message.channel.send(embed);

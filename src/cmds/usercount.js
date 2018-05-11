@@ -15,7 +15,7 @@ module.exports = {
       hasRole(message.member, "Staff")
     ) {
       // <---   If you would like to change role perms. Change [BontControl] to your role name
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor(
           `AlphaConsole has ${message.guild.memberCount} members + (50k prune).`,

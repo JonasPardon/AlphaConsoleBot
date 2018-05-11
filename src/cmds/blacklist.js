@@ -21,7 +21,7 @@ module.exports = {
       hasRole(message.member, "Developer")
     ) {
       if (args.length < 2) {
-        const embedChannel = new Discord.MessageEmbed()
+        const embedChannel = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             `Incorrect Usage: !blacklist <check|add|remove> <word>`,
@@ -34,7 +34,7 @@ module.exports = {
         var badWord = makeWord(args);
 
         if (blackListedWords.indexOf(badWord) > -1) {
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${badWord} -> was found in the blacklist`,
@@ -42,7 +42,7 @@ module.exports = {
             );
           return message.channel.send(embedChannel);
         } else {
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${badWord} -> was not found in the blacklist`,
@@ -57,7 +57,7 @@ module.exports = {
         if (index == -1) {
           blackListedWords.push(badWord);
           sql.run(`Insert into Blacklist(Word) VALUES ('${badWord}')`);
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${badWord} -> was added to the blacklist`,
@@ -65,7 +65,7 @@ module.exports = {
             );
           return message.channel.send(embedChannel);
         } else {
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${badWord} -> is already in the blacklist`,
@@ -80,7 +80,7 @@ module.exports = {
         if (index > -1) {
           blackListedWords.splice(index, 1);
           sql.run(`Delete from Blacklist where Word = '${badWord}'`);
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${badWord} -> was removed from the blacklist`,
@@ -88,7 +88,7 @@ module.exports = {
             );
           return message.channel.send(embedChannel);
         } else {
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `Error. Word not found in cached list.`,

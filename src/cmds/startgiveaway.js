@@ -116,7 +116,7 @@ module.exports = {
                   } else {
                     await giveawayChannel.send("‌\n\n**Current giveaway:**");
 
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new Discord.RichEmbed()
                       .setColor([255, 255, 0])
                       .setAuthor("Legacy Role Giveaway", serverInfo.logo)
                       .setDescription(

@@ -34,7 +34,7 @@ module.exports = {
             StatusMSG = "No statuses found.";
           }
 
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Bot Statuses", serverInfo.logo)
             .setDescription(StatusMSG);
@@ -46,7 +46,7 @@ module.exports = {
         else if (args[2].toLowerCase() == "streaming") StatusType = "STREAMING";
         else if (args[2].toLowerCase() == "listening") StatusType = "LISTENING";
         else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Status type not found!", serverInfo.logo)
             .setDescription(
@@ -79,7 +79,7 @@ module.exports = {
             )}', '${mysql_real_escape_string(StatusText)}')`
           )
           .then(() => {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Status added to the list.", serverInfo.logo);
             message.channel.send(embed);
@@ -92,7 +92,7 @@ module.exports = {
             )}'`
           )
           .then(() => {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Status removed from the list.", serverInfo.logo);
             message.channel.send(embed);
@@ -111,7 +111,7 @@ module.exports = {
           sql
             .run("delete from sqlite_sequence where name='Statuses'")
             .then(() => {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("Status list reset.", serverInfo.logo);
               message.channel.send(embed);

@@ -28,7 +28,7 @@ module.exports = {
 
             AllowedLinksSet.delete(message.channel.id);
 
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 "Links are no longer allowed in this channel",
@@ -36,7 +36,7 @@ module.exports = {
               );
             message.channel.send(embed);
 
-            const embedlog = new Discord.MessageEmbed()
+            const embedlog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Togglelinks", serverInfo.logo)
               .addField(
@@ -61,7 +61,7 @@ module.exports = {
 
             AllowedLinksSet.add(message.channel.id);
 
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 "Links are now allowed in this channel",
@@ -69,7 +69,7 @@ module.exports = {
               );
             message.channel.send(embed);
 
-            const embedlog = new Discord.MessageEmbed()
+            const embedlog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Togglelinks", serverInfo.logo)
               .addField(

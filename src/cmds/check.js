@@ -23,7 +23,7 @@ module.exports = {
         .get(`select * from Members where DiscordID = '${DiscordID}'`)
         .then(row => {
           if (row) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 `User check on ${
@@ -55,7 +55,7 @@ module.exports = {
               message.channel.send(embed);
             }
           } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("No user found in the database", serverInfo.logo);
             message.channel.send(embed);

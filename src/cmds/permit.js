@@ -23,7 +23,7 @@ module.exports = {
         channel: message.channel.id
       };
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor(
           `${
@@ -33,7 +33,7 @@ module.exports = {
         );
       message.channel.send(embed);
 
-      const embedlog = new Discord.MessageEmbed()
+      const embedlog = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor("Link Permit", serverInfo.logo)
         .addField(

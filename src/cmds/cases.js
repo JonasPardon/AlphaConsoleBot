@@ -25,12 +25,12 @@ module.exports = {
         .get(`select * from Members where DiscordID = '${TheUser}'`)
         .then(row => {
           if (!row) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`User not found`, serverInfo.logo);
             return message.channel.send(embed);
           } else {
-            const embed = new Discord.MessageEmbed().setColor([255, 255, 0]);
+            const embed = new Discord.RichEmbed().setColor([255, 255, 0]);
 
             if (client.users.get(TheUser)) {
               embed.setAuthor(

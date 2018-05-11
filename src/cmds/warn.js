@@ -16,7 +16,7 @@ module.exports = {
       hasRole(message.member, "Developer")
     ) {
       if (message.mentions.users.first() == undefined) {
-        const embedChannel = new Discord.MessageEmbed()
+        const embedChannel = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Please tag the user to be warned", serverInfo.logo);
         return message.channel.send(embedChannel);
@@ -116,7 +116,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
           if (!roww) return message.channel.send("An error occured");
 
           CaseID = roww.ID;
-          const embedChannel = new Discord.MessageEmbed()
+          const embedChannel = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               `${user.tag} has been warned! Case number: ${CaseID}`,
@@ -125,7 +125,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
           message.channel.send(embedChannel);
 
           if (row.Warnings == 0) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 "You have received a warning. Next warning will result in a temporary mute!",
@@ -133,7 +133,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
               );
             user.send(embed);
 
-            const embedLog = new Discord.MessageEmbed()
+            const embedLog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`Case ${CaseID} | Warn`, serverInfo.logo)
               .setTitle("==> WARNING 1")
@@ -163,7 +163,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
               `update Members set Warnings = '1' where DiscordID = '${user.id}'`
             );
           } else if (row.Warnings == 1) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 "You have received a second warning! You'll now be muted for 15 minutes, you are warned!",
@@ -171,7 +171,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
               );
             user.send(embed);
 
-            const embedLog = new Discord.MessageEmbed()
+            const embedLog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`Case ${CaseID} | Warn`, serverInfo.logo)
               .setTitle("==> WARNING 2")
@@ -208,7 +208,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
             );
             TheUser.addRole(TheRole);
           } else if (row.Warnings > 1) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(
                 "You have received another warning! You'll now be muted, and the staff will look into your behaviour for further actions.",
@@ -216,7 +216,7 @@ function WarnUser(client, serverInfo, sql, message, row, args) {
               );
             user.send(embed);
 
-            const embedLog = new Discord.MessageEmbed()
+            const embedLog = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`Case ${CaseID} | Warn`, serverInfo.logo)
               .setTitle("==> WARNING 3")

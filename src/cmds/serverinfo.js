@@ -56,7 +56,7 @@ module.exports = {
       )
         console.log("Emojis failed");
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setThumbnail(guild.iconURL({ format: "png" }))
         .addField(

@@ -37,7 +37,7 @@ module.exports = {
       );
 
       if (!role) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor(
             "The role was not found within the server.",
@@ -46,7 +46,7 @@ module.exports = {
         return message.channel.send(embed);
       }
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor(role.hexColor)
         .setThumbnail("http://www.cityrider.com/fixed/43aspect.png")
         .addField("ID", role.id, true)

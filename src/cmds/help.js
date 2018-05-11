@@ -31,7 +31,7 @@ module.exports = {
           admin += Commands[key].title + "\n";
       }
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor("Help command", serverInfo.logo)
         .addField("Everyone commands", everyone)
@@ -62,7 +62,7 @@ module.exports = {
       message.channel.send(embed);
     } else if (args.length == 2) {
       if (Commands[args[1].toLowerCase()] != undefined) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Help command - " + args[1], serverInfo.logo)
           .setFooter(
@@ -77,7 +77,7 @@ module.exports = {
         }
         message.channel.send(embed);
       } else {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor([255, 255, 0])
           .setAuthor("Command not found", serverInfo.logo);
         message.channel.send(embed);

@@ -26,7 +26,7 @@ module.exports = {
 
         sql.get(`Select * from logs where ID = '${CaseID}'`).then(row => {
           if (row) {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`Case check`, serverInfo.logo)
               .addField(`Case ID`, row.ID, true)
@@ -52,7 +52,7 @@ module.exports = {
             embed.setFooter(`Time of case: ${date}`);
             message.channel.send(embed);
           } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`No case found with this ID`, serverInfo.logo);
             message.channel.send(embed);
@@ -75,13 +75,13 @@ module.exports = {
                 )}' where ID = '${CaseID}'`
               )
               .then(() => {
-                const embed = new Discord.MessageEmbed()
+                const embed = new Discord.RichEmbed()
                   .setColor([255, 255, 0])
                   .setAuthor(`Case ${CaseID} updated!`, serverInfo.logo);
                 message.channel.send(embed);
               });
           } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`No case found with this ID`, serverInfo.logo);
             message.channel.send(embed);
@@ -93,7 +93,7 @@ module.exports = {
         sql.get(`Select * from logs where ID = '${CaseID}'`).then(row => {
           if (row) {
             sql.run(`delete from logs where ID = '${CaseID}'`).then(() => {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor(`Case ${CaseID} deleted!`, serverInfo.logo);
               message.channel.send(embed);
@@ -106,7 +106,7 @@ module.exports = {
                 });
             });
           } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor(`No case found with this ID`, serverInfo.logo);
             message.channel.send(embed);

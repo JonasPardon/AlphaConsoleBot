@@ -41,7 +41,7 @@ module.exports = {
         .overwritePermissions(message.guild.id, {
           SEND_MESSAGES: false
         });
-      const embedChannel = new Discord.MessageEmbed()
+      const embedChannel = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor(
           "All bot reliant channels have been locked down.",

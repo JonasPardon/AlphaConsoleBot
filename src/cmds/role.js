@@ -17,13 +17,13 @@ module.exports = {
         ) {
           if (message.member.roles.has(serverInfo.EventsRole)) {
             message.member.removeRole(serverInfo.EventsRole);
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Role removed from your profile.", serverInfo.logo);
             message.channel.send(embed);
           } else {
             message.member.addRole(serverInfo.EventsRole);
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("Role added to your profile.", serverInfo.logo);
             message.channel.send(embed);
@@ -57,7 +57,7 @@ module.exports = {
               r => r.name.toLowerCase() == rolename.trim().toLowerCase()
             );
             if (theRole) {
-              const embed = new Discord.MessageEmbed().setColor([255, 255, 0]);
+              const embed = new Discord.RichEmbed().setColor([255, 255, 0]);
 
               if (theMember.roles.has(theRole.id)) {
                 await theMember.removeRole(theRole);
@@ -75,19 +75,19 @@ module.exports = {
 
               message.channel.send(embed);
             } else {
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("The role was not found", serverInfo.logo);
               message.channel.send(embed);
             }
           } else {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 255, 0])
               .setAuthor("The member was not found", serverInfo.logo);
             message.channel.send(embed);
           }
         } else {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor(
               "You did not include the users or the role",

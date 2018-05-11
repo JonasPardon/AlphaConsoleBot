@@ -83,7 +83,7 @@ module.exports = {
 
         default:
           // Also covers help keyword
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Partner Command Help:", serverInfo.logo)
             .addField(
@@ -245,7 +245,7 @@ function addPartnerInsert(client, serverInfo, sql, message, args, type, name) {
             ]
           )
           .then(res => {
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
               .setColor([255, 140, 0])
               .setAuthor(
                 "Attempting to Update Partners Channel!",
@@ -257,7 +257,7 @@ function addPartnerInsert(client, serverInfo, sql, message, args, type, name) {
             updatePartnersChannel(client, sql, serverInfo, message)
               .then(result => {
                 allowMessages(message, serverInfo, true);
-                const embed = new Discord.MessageEmbed()
+                const embed = new Discord.RichEmbed()
                   .setColor([255, 255, 0])
                   .setAuthor("Success!", serverInfo.logo)
                   .setDescription(
@@ -320,7 +320,7 @@ function addType(client, serverInfo, sql, message, args) {
         )
         .then(res => {
           // Type added, update partners channel
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Success!", serverInfo.logo)
             .setDescription(
@@ -332,7 +332,7 @@ function addType(client, serverInfo, sql, message, args) {
           updatePartnersChannel(client, sql, serverInfo, message)
             .then(result => {
               allowMessages(message, serverInfo, true);
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("Success!", serverInfo.logo)
                 .setDescription("Updated Partners Channel!");
@@ -383,7 +383,7 @@ function enablePartner(client, serverInfo, sql, message, args) {
           name.toLowerCase()
         ])
         .then(res => {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Success!", serverInfo.logo)
             .setDescription(
@@ -394,7 +394,7 @@ function enablePartner(client, serverInfo, sql, message, args) {
           updatePartnersChannel(client, sql, serverInfo, message)
             .then(result => {
               allowMessages(message, serverInfo, true);
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("Success!", serverInfo.logo)
                 .setDescription("Updated Partners Channel!");
@@ -442,7 +442,7 @@ function disablePartner(client, serverInfo, sql, message, args) {
           name.toLowerCase()
         ])
         .then(res => {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.RichEmbed()
             .setColor([255, 255, 0])
             .setAuthor("Success!", serverInfo.logo)
             .setDescription(
@@ -453,7 +453,7 @@ function disablePartner(client, serverInfo, sql, message, args) {
           updatePartnersChannel(client, sql, serverInfo, message)
             .then(result => {
               allowMessages(message, serverInfo, true);
-              const embed = new Discord.MessageEmbed()
+              const embed = new Discord.RichEmbed()
                 .setColor([255, 255, 0])
                 .setAuthor("Success!", serverInfo.logo)
                 .setDescription("Updated Partners Channel!");
@@ -489,7 +489,7 @@ function listPartners(client, serverInfo, sql, message, args) {
         else en = " [Disabled]";
         allPartners += "- " + row.partner_name + en + ",\n";
       });
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor("AlphaConsole Partners:", serverInfo.logo)
         .setDescription(allPartners);
@@ -509,7 +509,7 @@ function listTypes(client, serverInfo, sql, message, args) {
       rows.forEach(row => {
         allTypes += "- " + row.type + ",\n";
       });
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor("Partner Types:", serverInfo.logo)
         .setDescription(allTypes);
@@ -635,7 +635,7 @@ async function setChannelHeader(client, serverInfo, sql, message, args) {
 
 function forceUpdatePartners(client, serverInfo, sql, message, args) {
   // Type added, update partners channel
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.RichEmbed()
     .setColor([255, 140, 0])
     .setAuthor("Attempting to Update Partners Channel!", serverInfo.logo);
   if (message != null) message.channel.send(embed);
@@ -646,7 +646,7 @@ function forceUpdatePartners(client, serverInfo, sql, message, args) {
     .then(result => {
       //Check Promise result, since the function is running async.
       allowMessages(message, serverInfo, true);
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor([255, 255, 0])
         .setAuthor("Success!", serverInfo.logo)
         .setDescription("Updated Partners Channel!");
@@ -668,7 +668,7 @@ function allowMessages(message, serverInfo, allow) {
 }
 
 function getErrorEmbed(serverInfo, err) {
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.RichEmbed()
     .setColor([255, 0, 0])
     .setAuthor("Failed!", serverInfo.logo)
     .addField("Error:", `${err}`);
